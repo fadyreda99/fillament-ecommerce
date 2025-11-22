@@ -17,6 +17,7 @@ class CategoriesTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
+                    
                 TextColumn::make('parent.name')
                     ->searchable(),
                 TextColumn::make('created_at')
