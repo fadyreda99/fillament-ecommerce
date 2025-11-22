@@ -28,6 +28,10 @@ class ProductsTable
                 TextColumn::make('price')
                     ->money()
                     ->sortable(),
+
+                TextColumn::make('cost_price')
+                    ->money()
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Products\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -19,6 +20,9 @@ class ProductForm
                 Textarea::make('description')
                     ->columnSpanFull(),
                 TextInput::make('price')
+                    ->numeric()
+                    ->prefix('$'),
+                TextInput::make('cost_price')
                     ->numeric()
                     ->prefix('$'),
 
@@ -47,7 +51,13 @@ class ProductForm
                     ->native(false)
 
                     ->required()
-                    ->columnSpan(1)
+                    ->columnSpan(1),
+                FileUpload::make('featured_image')
+                    ->label('Image')
+                    ->image()
+                    ->directory('products/featured/images')
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 }
