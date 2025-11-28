@@ -26,11 +26,11 @@ class ProductsTable
                     ->sortable(),
 
                 TextColumn::make('price')
-                    ->money()
+                    ->money('EGP')
                     ->sortable(),
 
                 TextColumn::make('cost_price')
-                    ->money()
+                    ->money('EGP')
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()

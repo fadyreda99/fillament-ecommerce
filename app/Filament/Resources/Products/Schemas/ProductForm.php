@@ -21,10 +21,10 @@ class ProductForm
                     ->columnSpanFull(),
                 TextInput::make('price')
                     ->numeric()
-                    ->prefix('$'),
+                    ->prefix('EGP'),
                 TextInput::make('cost_price')
                     ->numeric()
-                    ->prefix('$'),
+                    ->prefix('EGP'),
 
                 Select::make('category_id')
                     ->label('Category')
