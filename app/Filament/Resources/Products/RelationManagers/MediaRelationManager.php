@@ -36,7 +36,7 @@ class MediaRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('file_path')
             ->columns([
-                ImageColumn::make('file_path')->label('Image')->square(),
+                ImageColumn::make('file_path')->label('Image')->rounded(),
             ])
             ->headerActions([
                 // Normal upload (one image per record)
