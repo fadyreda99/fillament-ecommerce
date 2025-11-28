@@ -12,10 +12,12 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\DissociateAction;
 use Filament\Actions\DissociateBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -45,6 +47,13 @@ class VariationsRelationManager extends RelationManager
                     ->required()
                     ->native(false)
                     ->disabled(fn($get) => blank($get('variation_id'))),
+
+                FileUpload::make('image')
+                    ->label('Image')
+                    ->image()
+                    ->directory('products/variations/images')
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -54,6 +63,7 @@ class VariationsRelationManager extends RelationManager
             ->columns([
                 TextColumn::make('variation.name')->label('Type'),
                 TextColumn::make('variationValue.value')->label('Value'),
+                ImageColumn::make('image')->label('Image')->rounded(),
             ])
             ->headerActions([
                 CreateAction::make(),
